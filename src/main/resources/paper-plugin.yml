@@ -1,0 +1,26 @@
+name: Homesteader
+version: '${version}'
+main: com.extantape.homesteader.HomesteaderPlugin
+api-version: '26.1'
+description: A starter kit on a player's first visit to each world group, with an optional one-time move to a safe spot. Not a land claim plugin.
+website: https://github.com/ExtantApe/Homesteader
+dependencies:
+  server:
+    # Optional. Loaded first when present, and on Homesteader's classpath so it can read their groups.
+    Multiverse-Core:
+      load: BEFORE
+      required: false
+      join-classpath: true
+    Multiverse-Inventories:
+      load: BEFORE
+      required: false
+      join-classpath: true
+    # Read by reflection, so it doesn't need to be on the classpath.
+    GriefPrevention:
+      load: BEFORE
+      required: false
+      join-classpath: false
+permissions:
+  homesteader.admin:
+    description: Use /homesteader, and hear about a damaged record file on join.
+    default: op

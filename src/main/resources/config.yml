@@ -1,0 +1,60 @@
+# Homesteader gives a starter kit on a player's first visit to a world group,
+# and can move them once to a safe spot away from spawn. It never claims land
+# and never changes blocks.
+
+# Ticks to wait after a player arrives before doing anything, so the inventory
+# plugin has finished swapping. 20 ticks is one second.
+settle-ticks: 10
+
+# Claims to keep away from when moving players: auto (GriefPrevention if it's
+# running), griefprevention (and refuse to move anyone without it), or none.
+claims: auto
+
+groups:
+  # The group name. With an empty 'worlds' list, the worlds come from the
+  # Multiverse-Inventories group with this name.
+  example-survival:
+    enabled: false
+    worlds: []
+    # A player whose first arrival Homesteader sees finds items, ender chest
+    # contents or XP already in this group's inventory is marked done, with no
+    # starter or move. That covers players from before Homesteader was on.
+    # Set false when existing players should get the starter too.
+    skip-existing-players: true
+    starter:
+      # MATERIAL or MATERIAL amount.
+      items:
+        - CHEST
+        - BREAD 8
+      # Console commands, run once after the items. {player} is the name,
+      # {uuid} the UUID. A failing command is logged and the rest still run.
+      commands: []
+      # - give {player} stick
+    move:
+      enabled: false
+      # The move happens only if the player's first visit is to this world.
+      world: example_world
+      # 'spawn' or 'x,z'.
+      center: spawn
+      min-distance: 300
+      max-distance: 1500
+      # Blocks to keep from anyone's claim.
+      claim-buffer: 48
+      # Blocks to keep from the world border.
+      border-margin: 16
+      # Chunks to try before giving up. Each try loads at most one chunk.
+      attempts: 16
+    # Optional: this group's own messages, for any of starter, moved, no-spot
+    # and no-room. Any it leaves out use the ones below.
+    # messages:
+    #   starter: "<green>Welcome! Your starter is in your inventory.</green>"
+
+# The messages players see, in MiniMessage format. Leave one empty to send
+# nothing. The words carry the meaning on their own, so they still read right
+# for players who can't tell the colours apart.
+messages:
+  starter: "<green>Welcome! Here's a chest and a little food to get you started.</green> <gray>Place the chest wherever you'd like to settle.</gray>"
+  moved: "<gray>You've been given a quiet spot of your own, away from spawn.</gray>"
+  no-spot: "<gold>We couldn't find a safe spot away from spawn this time, so you're starting here.</gold>"
+  no-room: "<gold>Your starter is waiting. Free up {slots} inventory slot(s) and it will arrive by itself.</gold>"
+  record-problem: "<red>Homesteader: the record file is damaged, so no starters are being given. See the server log.</red>"
