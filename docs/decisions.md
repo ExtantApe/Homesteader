@@ -16,3 +16,4 @@ The owner's decisions about Homesteader, with dates. Group and world names are l
 - **Repo.** `ExtantApe/Homesteader`, private until the owner says otherwise.
 - **Testing.** Throwaway local servers on 127.0.0.1, one at a time, deleted after each run. The owner accepted the Minecraft EULA for them.
 - **Done well, not just done.** Clear, welcoming messages, sensible defaults, and wording that doesn't rely on colour.
+- **Going public.** After the first-public audit (no secrets, server addresses, real names or player data, no build output) and with the leak check in CI, the owner approved making the repo public. Releases are 0.x on GitHub Releases only. Modrinth, Hangar and Spigot wait for the owner's own code review.
