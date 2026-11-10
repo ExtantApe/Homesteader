@@ -24,7 +24,11 @@ public final class GriefPreventionClaims implements ClaimCheck {
 
     public static GriefPreventionClaims create(Plugin gp) throws ReflectiveOperationException {
         Field f = gp.getClass().getField("dataStore");
-        Object ds = f.get(gp);
+        return fromDataStore(f.get(gp));
+    }
+
+    /** The part of {@link #create} after finding the data store, so it can be tested without GriefPrevention. */
+    static GriefPreventionClaims fromDataStore(Object ds) throws ReflectiveOperationException {
         Method m = ds.getClass().getMethod("getClaims");
         GriefPreventionClaims c = new GriefPreventionClaims(ds, m);
         c.claims(); // Fail now, not on the first player.
