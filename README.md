@@ -59,7 +59,7 @@ groups:
       attempts: 16        # chunks to try, at most one loaded per try
 ```
 
-Messages are in MiniMessage format, under `messages`, and a group can override any of them under its own `messages`. A group whose starter is only a command, for example, can say what actually arrived. Leave one empty to send nothing. The words carry the meaning on their own, so they read the same for players who can't tell the colours apart.
+Messages are in MiniMessage format, under `messages`, and a group can override any of them under its own `messages`. A group whose starter is only a command, for example, can say what actually arrived. Leave one empty to send nothing. The words carry the meaning on their own, so they read the same for players who can't tell the colors apart.
 
 ## Commands
 
@@ -95,7 +95,7 @@ The version is `26.1.2`, `26.2` or `26.3`. `HS_TEST_JARS` needs `paper-<version>
 
 It checks once-only across worlds, relogs, deaths and restarts; separate groups; groups it doesn't know; hopping in and out before the swap and during the search; full inventories; starter commands; mark as done; existing inventories; disconnects and `kill -9` between each step; hundreds of searches over made-up water, lava, leaves, magma and cliffs, plus generated terrain, with a bot checking every landing itself; a small border and claims; eight players arriving at once; and a damaged record file. The `homesteader.test.*` system properties add pauses between steps for the crash tests. Don't set them on a real server.
 
-What the suite can't show: a real client's view of a landing, and how long chunks take to appear for a real player. [docs/26x-audit.md](docs/26x-audit.md) lists what was modernised for 26.x and what stayed.
+What the suite can't show: a real client's view of a landing, and how long chunks take to appear for a real player. [docs/26x-audit.md](docs/26x-audit.md) lists what was modernized for 26.x and what stayed.
 
 ## License
 
